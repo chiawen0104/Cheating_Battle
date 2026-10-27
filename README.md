@@ -10,7 +10,7 @@ If you want to learn more about this game, you can watch this demo video: https:
 Please click `作弊抓耙仔(Cheating Battle).exe` in `./Release` (for Windows user ONLY!), then enter full screen to play the game.
 
 Rules of the game:
-![image](https://github.com/chiawen0104/Cheating_Battle/blob/main/Cheating_Battle/Source/Picture/rule.png)
+![image](https://github.com/chiawen0104/Cheating_Battle/blob/main/Source/Picture/rule.png)
 
 Tips: 
 1. Notice the teacher's action carefully.
