@@ -53,6 +53,12 @@ bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColo
 {
     free();
 
+    // Nothing to draw yet (e.g. the score before its first update).
+    if( textureText.empty() )
+    {
+        return false;
+    }
+
     SDL_Surface* textSurface = TTF_RenderUTF8_Solid( gFont, textureText.c_str(), textColor );
     if( textSurface != NULL )
     {

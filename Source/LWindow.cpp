@@ -22,7 +22,7 @@ LWindow::LWindow()
 
 bool LWindow::init()
 {
-    mWindow = SDL_CreateWindow( "Cheating Battle", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE );
+    mWindow = SDL_CreateWindow( "Cheating Battle", WINDOW_X, WINDOW_Y, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
     if( mWindow != NULL )
     {
         mWidth = SCREEN_WIDTH;
@@ -64,20 +64,6 @@ void LWindow::handleEvent( SDL_Event& e )
             case SDL_WINDOWEVENT_RESTORED:
             mMinimized = false;
             break;
-        }
-    }
-    else if( e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_RETURN )
-    {
-        if( mFullScreen )
-        {
-            SDL_SetWindowFullscreen( mWindow, SDL_FALSE );
-            mFullScreen = false;
-        }
-        else
-        {
-            SDL_SetWindowFullscreen( mWindow, SDL_TRUE );
-            mFullScreen = true;
-            mMinimized = false;
         }
     }
 }

@@ -3,6 +3,8 @@
 extern SDL_Renderer* gRenderer;
 extern const int SCREEN_WIDTH;
 extern const int SCREEN_HEIGHT;
+extern const int WINDOW_X;
+extern const int WINDOW_Y;
 
 class LWindow
 {

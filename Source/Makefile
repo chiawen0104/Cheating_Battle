@@ -1,15 +1,18 @@
 CXX      := clang++
 CXXFLAGS := -std=c++11 -Wall $(shell pkg-config --cflags sdl2 SDL2_image SDL2_ttf SDL2_mixer)
-LDFLAGS  := $(shell pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer)
+LDFLAGS  := $(shell pkg-config --libs sdl2 SDL2_image SDL2_ttf SDL2_mixer) -framework Cocoa
 
-SRCS := $(wildcard *.cpp)
-OBJS := $(SRCS:.cpp=.o)
+SRCS := $(wildcard *.cpp) $(wildcard *.mm)
+OBJS := $(addsuffix .o,$(basename $(SRCS)))
 TARGET := CheatingBattle
 
 $(TARGET): $(OBJS)
 	$(CXX) $(OBJS) $(LDFLAGS) -o $@
 
 %.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+%.o: %.mm
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 run: $(TARGET)

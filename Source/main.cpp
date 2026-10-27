@@ -4,6 +4,7 @@
 #include "SDLHeaders.h"
 #include "LTexture.h"
 #include "LWindow.h"
+#include "MacPresentation.h"
 #include "LButton.h"
 #include "Tiempo.h"
 #include "Teacher.h"
@@ -21,8 +22,12 @@ enum scenario{
     finish=4
 };
 SDL_Renderer* gRenderer=NULL;
-const int SCREEN_WIDTH=640;
-const int SCREEN_HEIGHT=480;
+// Fixed window size, the same as the window zoomed to fill a MacBook Air screen (the Dock covers only the empty bottom strip).
+const int SCREEN_WIDTH=1470;
+const int SCREEN_HEIGHT=892;
+// Window position: flush with the left edge, just below the menu bar and title bar.
+const int WINDOW_X=0;
+const int WINDOW_Y=65;
 LWindow gWindow;
 TTF_Font *gFont = NULL;
 TTF_Font *bigFont = NULL;
@@ -84,6 +89,7 @@ bool init()
         }
         else
         {
+            MacPresentation::hideDock();
             gRenderer = gWindow.createRenderer();
             if( gRenderer == NULL )
             {
