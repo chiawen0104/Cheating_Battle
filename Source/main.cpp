@@ -5,6 +5,7 @@
 #include "LTexture.h"
 #include "LWindow.h"
 #include "MacPresentation.h"
+#include "AppResources.h"
 #include "LButton.h"
 #include "Tiempo.h"
 #include "Teacher.h"
@@ -503,6 +504,7 @@ int main( int argc, char* args[] )
     int roundtick, Currenttick;
     
     angry=false;
+    AppResources::useResourceDirectory();
     if( !init() )
     {
         printf( "Failed to initialize!\n" );
