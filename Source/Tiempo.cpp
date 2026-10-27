@@ -9,10 +9,14 @@ using namespace std;
 void Tiempo::go()
 {
     unsigned int currenttime;
-    static unsigned int start = SDL_GetTicks();
+    if(!started)
+    {
+        startTime = SDL_GetTicks();
+        started = true;
+    }
     currenttime = SDL_GetTicks();
     int min,sec;
-    second=120-(currenttime-start)/1000+rd*6-6;
+    second=120-(currenttime-startTime)/1000+rd*6-6;
     tout.str("");
     tout.clear();
     min=second/60;
@@ -30,6 +34,9 @@ void Tiempo::go()
 void Tiempo::reset()
 {
     second=120;
+    started=false;
+    tout.str("");
+    tout.clear();
     tout<<"2:00";
 }
 bool Tiempo::end()

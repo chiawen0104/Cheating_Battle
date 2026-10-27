@@ -13,6 +13,8 @@ class Tiempo: public LTexture{
         void reset();
     private:
         int second;
+        bool started = false;
+        unsigned int startTime = 0;
 };
 #endif
 

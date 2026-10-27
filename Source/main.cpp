@@ -286,7 +286,7 @@ void putMedia(scenario s)
             if(!backon) BackTexture.loadFromFile("./Picture/backbutton.png");
             else BackTexture.loadTexture2("./Picture/backbutton.png",124,218);
             gSceneTexture.render( ( gWindow.getWidth() - gSceneTexture.getWidth() ) / 2, ( gWindow.getHeight() - gSceneTexture.getHeight() ) / 2 );
-            BackTexture.render(gWindow.getWidth()*4/9, gWindow.getHeight()*8/9);
+            BackTexture.render(gWindow.getWidth()*4/9, gWindow.getHeight()*13/15);
             Start.work=0;
             Start.mCurrentSprite=BUTTON_SPRITE_MOUSE_OUT;
             Rule.work=0;
@@ -426,6 +426,14 @@ void putMedia(scenario s)
             score1.render(gWindow.getWidth()/20,gWindow.getHeight()/2);
             score2.render(gWindow.getWidth()*19/20-score2.getWidth(),gWindow.getHeight()/2);
             Win.render(gWindow.getWidth()/2-Win.getWidth()/2,gWindow.getHeight()*19/20-2*Win.getHeight());
+            if(!backon) BackTexture.loadFromFile("./Picture/backbutton.png");
+            else BackTexture.loadTexture2("./Picture/backbutton.png",124,218);
+            BackTexture.render(gWindow.getWidth()*4/9, gWindow.getHeight()*13/15);
+            Start.work=0;
+            Start.mCurrentSprite=BUTTON_SPRITE_MOUSE_OUT;
+            Rule.work=0;
+            Rule.mCurrentSprite=BUTTON_SPRITE_MOUSE_OUT;
+            Back.work=1;
             break;
     }
 }
@@ -459,6 +467,31 @@ void close()
     TTF_Quit();
     Mix_Quit();
     SDL_Quit();
+}
+// Put everything back to a fresh game so the player can start over from the home screen.
+void resetGame(bool& roundbegin, bool& roundend, bool& roundgettime)
+{
+    rd=1;
+    angry=false;
+    roundbegin=true;
+    roundend=false;
+    roundgettime=false;
+    score1.reset();
+    score2.reset();
+    score1.sout.str("");
+    score1.sout.clear();
+    score2.sout.str("");
+    score2.sout.clear();
+    countdown.reset();
+    teacher.ifread=false;
+    teacher.ifangry=false;
+    One.ifcheat=false;
+    One.ifraise=false;
+    Two.ifcheat=false;
+    Two.ifraise=false;
+    // Stop the game over music so the intro music can start again.
+    Mix_HaltMusic();
+    musica=0;
 }
 int main( int argc, char* args[] )
 {
@@ -504,7 +537,7 @@ int main( int argc, char* args[] )
                 SDL_RenderClear( gRenderer );
                 Start.setPosition(gWindow.getWidth()*2/5, gWindow.getHeight()*3/5);
                 Rule.setPosition(gWindow.getWidth()*7/17, gWindow.getHeight()*21/30);
-                Back.setPosition(gWindow.getWidth()*4/9, gWindow.getHeight()*8/9);
+                Back.setPosition(gWindow.getWidth()*4/9, gWindow.getHeight()*13/15);
                 One.setpos();
                 Two.setpos();
                 putMedia(s);
@@ -539,6 +572,10 @@ int main( int argc, char* args[] )
                 }
                 if(Back.mCurrentSprite==BUTTON_SPRITE_MOUSE_UP)
                 {
+                    if(s==finish)
+                    {
+                        resetGame(roundbegin,roundend,roundgettime);
+                    }
                     s=starting;
                 }
                 if(Start.mCurrentSprite==BUTTON_SPRITE_MOUSE_UP)
