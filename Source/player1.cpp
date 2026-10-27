@@ -10,7 +10,7 @@
 #include <sstream>
 #include "LTexture.h"
 #include "LWindow.h"
-#include <SDL2/SDL.h>
+#include "SDLHeaders.h"
 #include "player1.h"
 using namespace std;
 

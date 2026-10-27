@@ -8,7 +8,7 @@
 #ifndef PLAYERTWO
 #define PLAYERTWO
 #include "Student.h"
-#include <SDL2/SDL.h>
+#include "SDLHeaders.h"
 
 class player2 : public Student
 {

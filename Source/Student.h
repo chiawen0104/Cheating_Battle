@@ -7,7 +7,7 @@
 
 #ifndef STUDENT_H
 #define STUDENT_H
-#include <SDL2/SDL.h>
+#include "SDLHeaders.h"
 #include <stdio.h>
 class Student
 {

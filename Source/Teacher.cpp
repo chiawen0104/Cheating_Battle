@@ -12,9 +12,7 @@
 #include <sstream>
 #include <cstdlib>
 #include <time.h>
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <SDL2_ttf/SDL_ttf.h>
+#include "SDLHeaders.h"
 #include "LTexture.h"
 #include "LWindow.h"
 

@@ -3,8 +3,7 @@
 #include "player2.h"
 #include <string>
 #include <sstream>
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
+#include "SDLHeaders.h"
 #include <stdio.h>
 #include "Score.h"
 void Score::reset()

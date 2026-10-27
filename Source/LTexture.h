@@ -1,8 +1,6 @@
 #ifndef LTEXTURE_H
 #define LTEXTURE_H
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <SDL2_ttf/SDL_ttf.h>
+#include "SDLHeaders.h"
 #include <string>
 #include <sstream>
 enum KeyPressSurfaces

@@ -5,8 +5,7 @@
 //  Created by 盧家雯 on 2022/1/2.
 //
 
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
+#include "SDLHeaders.h"
 #include <stdio.h>
 #include <string>
 #include <sstream>

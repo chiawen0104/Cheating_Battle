@@ -8,7 +8,7 @@
 #ifndef PLAYERONE
 #define PLAYERONE
 #include "Student.h"
-#include <SDL2/SDL.h>
+#include "SDLHeaders.h"
 class player1 : public Student
 {
     private:
